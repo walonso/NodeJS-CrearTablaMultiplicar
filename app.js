@@ -1,26 +1,6 @@
-const argv = require('yargs')
-    .command('listar', 'Imprime en consola la tabla de multiplicar', {
-        base: {
-            demand: true,
-            alias: 'b'
-        },
-        limite: {
-            alias: 'l',
-            default: 10
-        }
-    })
-    .command('crear', 'Genera archivo con la tabla de multiplicar', {
-        base: {
-            demand: true,
-            alias: 'b'
-        },
-        limite: {
-            alias: 'l',
-            default: 10
-        }
-    })
-    .help()
-    .argv;
+const argv = require('./config/yargs').argv;
+var colors = require('colors');
+
 
 /// Comandos para correr en consola y ver la documentacion usando yargs.
 //node app listar --limite=20 --base 50
@@ -63,7 +43,7 @@ switch (comando) {
         console.log('listar');
         break;
     case 'crear':
-        crearArchivo(argv.base, argv.limite).then(archivo => console.log(`archivo creado ${archivo}`))
+        crearArchivo(argv.base, argv.limite).then(archivo => console.log(`archivo creado ${archivo.green}`))
             .catch((e) => console.log(e))
             //console.log('crear');
         break;

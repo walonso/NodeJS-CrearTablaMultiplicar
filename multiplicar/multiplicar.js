@@ -1,11 +1,16 @@
 //Requires:
 const fs = require('fs');
+const colors = require('colors');
 //hay 3 tipos de requires: fs los propios de nOde, los express: hechos por otra gente que los traemos
 //nuestros requires: ./fs
 
 let listarTabla = (base, limite = 10) => {
+    console.log('-------------------------'.green);
+    console.log(`tabla de ${base}`.green);
+    console.log('-------------------------'.green);
+
     for (let index = 1; index <= limite; index++) {
-        console.log(`${base} * ${index} = ${base * index}\n`);
+        console.log(`${base} * ${index} = ${base * index}`);
 
     }
 }
